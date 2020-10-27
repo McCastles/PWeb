@@ -1,0 +1,43 @@
+<!doctype>
+<html>
+    <head>
+        
+        <!-- <script src="/static/main.js" defer></script> -->
+    
+        
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="/static/css/materialize.css"  media="screen,projection"/>
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    </head>
+    <body>
+
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Logo</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/sender/signup">Sign Up</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <form method="POST"
+            action="http://0.0.0.0:5000/register">
+            <ul>
+             <li><input type="text" id="firstname" name="firstname" placeholder="Imię"/></li>
+             <li><input type="text" id="lastname" name="lastname" placeholder="Nazwisko"/></li>
+             <li><input type="text" id="username" name="username" placeholder="Nazwa uzytkownika"/></li>
+             <li><input type="submit" id="submit" name="submit" value="Zarejestruj"/></li>
+            </ul>
+        </form>
+
+        <!--JavaScript at end of body for optimized loading-->
+        <script type="text/javascript" src="/static/js/materialize.js"></script>
+    </body>
+</html>
