@@ -1,25 +1,15 @@
 <!doctype>
 <html>
-    <head>
-        
-        <!-- Fix favicon.ico bug -->
-        <!-- <link rel="shortcut icon" href=""> -->
 
-        <!--Import Google Icon Font-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        
-        <!--Import materialize.css-->
-        <link type="text/css" rel="stylesheet" href="/static/css/materialize.css"  media="screen,projection"/>
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/static/css/materialize.css" media="screen,projection" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/custom.css">
+</head>
 
-        <!--Let browser know website is optimized for mobile-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-        <link rel="stylesheet" href="/static/css/custom.css">
-
-    </head>
-    <body>
-        
-
+<body>
+    <header>
         <nav>
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo">
@@ -31,21 +21,24 @@
                 </ul>
             </div>
         </nav>
+    </header>
 
+
+    <main>
 
         <div class="row">
-            <div class="col s6 m6">
-                
+            <div class="col s12 m6">
+
                 <div class="card medium">
                     <div class="card-image">
                         <img src="../static/images/space.jpg">
-                        
+
                         <!-- <img src="https://lorempixel.com/100/190/nature/6"> -->
                         <span class="card-title">Card Title</span>
                     </div>
                     <div class="card-content">
                         <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
+                            I am convenient because I require little markup to use effectively.</p>
                     </div>
                     <div class="card-action">
                         <a href="#">This is a link</a>
@@ -53,7 +46,7 @@
                 </div>
             </div>
 
-            <div class="col s6 m6">
+            <div class="col s12 m6">
                 <div class="card medium">
                     <div class="card-image">
                         <img src="../static/images/space2.png">
@@ -61,7 +54,7 @@
                     </div>
                     <div class="card-content">
                         <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
+                            I am convenient because I require little markup to use effectively.</p>
                     </div>
                     <div class="card-action">
                         <a href="#">This is a link</a>
@@ -70,12 +63,24 @@
             </div>
 
         </div>
+    </main>
 
 
 
 
 
-        <!--JavaScript at end of body for optimized loading-->
-        <script type="text/javascript" src="/static/js/materialize.js"></script>
-    </body>
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                © 2020 Aleksei Haidukevich, Politechnika Warszawska
+                <a class="grey-text text-lighten-4 right" href="https://github.com/McCastles/PWeb">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="/static/js/materialize.js"></script>
+</body>
+
 </html>

@@ -1,7 +1,15 @@
 
 body {
     background: #ced4da;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
+
+main {
+    flex: 1 0 auto;
+}
+     
 
 .nav-wrapper {
     background-color: #ffffff !important;
@@ -10,15 +18,24 @@ body {
     height: 100px;  
 }
 
-.nav .nav-wrapper .brand-logo img {
+/* .nav .nav-wrapper .brand-logo img {
     width: 400px;
     height: auto;
-}
+} */
 
 .nav-link-color li a {
-    color: #000000;
+    color: #212529;
+    background-color: #dee2e6;
 }
 
+.icon-color {
+    color: #db7ab2;
+}
+
+.page-footer {
+    background-color: #6c757d;
+
+}
 
   
 
@@ -40,17 +57,20 @@ body {
 
 .row{
     margin-top:20px;
-    margin-left: 14px;
+    /* margin-left: 14px; */
 }
 
-/* @media (max-width: 600px) {
-    .navbar-material .nav-wrapper .brand-logo img {
-        height: 56px;
-    }
+/* .row .col {
+    padding: 0rem;
 } */
 
 
-/* .navbar-material .nav-wrapper .brand-logo img {
-    height: 30px;
-    width: auto;
-}  */
+.input-field {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+
+.btn {
+    background-color: #db7ab2;
+}
+
