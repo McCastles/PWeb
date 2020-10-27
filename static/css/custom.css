@@ -1,4 +1,32 @@
 
+body {
+    background: #ced4da;
+}
+
+.nav-wrapper {
+    background-color: #ffffff !important;
+    font-size: 14px;
+    font-weight: bold;
+    height: 100px;  
+}
+
+.nav .nav-wrapper .brand-logo img {
+    width: 400px;
+    height: auto;
+}
+
+.nav-link-color li a {
+    color: #000000;
+}
+
+
+  
+
+/* .nav {
+    height: 90px;
+    line-height: 90px;
+} */
+
 .card {
     width: 90%;
     /* height: 20%; */
@@ -15,7 +43,14 @@
     margin-left: 14px;
 }
 
-/* .card-image{
-    height: 1400px;
-    overflow: hidden;
+/* @media (max-width: 600px) {
+    .navbar-material .nav-wrapper .brand-logo img {
+        height: 56px;
+    }
 } */
+
+
+/* .navbar-material .nav-wrapper .brand-logo img {
+    height: 30px;
+    width: auto;
+}  */
