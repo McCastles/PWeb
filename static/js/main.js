@@ -23,7 +23,7 @@ var regexDict = new Map();
 
 regexDict.set("login", [/^[a-z]{3,12}$/, "small Latin letters, length between 3 and 12"]);
 regexDict.set("password", [/.{8,}/, "at least 8 characters long"]);
-regexDict.set("password2", [/.+/, "at least 8 characters long"]);
+regexDict.set("password2", [/.+/, "passwords have to match"]);
 
 regexDict.set("firstname", [/^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]+$/, "Latin and/or Polish symbols, has to start with the capital letter"]);
 regexDict.set("lastname", [/^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]+$/, "Latin and/or Polish symbols, has to start with the capital letter"]);
@@ -82,7 +82,8 @@ function validateField(id, value) {
         
         
         // For passwords: check if passwords match
-        if (id=="password" || id=="password2") {
+        if (id=="password2") {
+            
             trackField( id, passwordsMatchCheck(), "passwords have to match" )
         }
 
