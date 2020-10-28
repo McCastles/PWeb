@@ -44,8 +44,10 @@ function availCheck(username) {
             if(xhr.status == OK){
                 let response = JSON.parse(xhr.responseText);
                 console.info(response)
-                // if (response[value] === "available"){
-                //     markAlright(username, alert_username, 2);
+                if (response[value] === "available"){
+                    return true
+                }
+                    markAlright(username, alert_username, 2);
                 // } else {
                 //     markError(username, alert_username, 2, message);
                 // }
