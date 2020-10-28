@@ -34,7 +34,7 @@ regexDict.set("photo", [/.+/, "a file has to be chosen (PNG or JPG)"]);
 
 
 
-function availCheck( id, value, msgInvalid ) {
+function availCheck( id, value ) {
 
 
     let xhr = new XMLHttpRequest();
@@ -49,7 +49,7 @@ function availCheck( id, value, msgInvalid ) {
 
                 console.info(response)
 
-                trackField( id, (response[value] === "available"), msgInvalid )
+                trackField( id, (response[value] === "available"), " username is taken" )
 
 
             } 
@@ -77,6 +77,8 @@ function validateField(id, value) {
  
     // For everything: Check RegEx
     if ( regex.test(value) ) {
+
+        console.info(id + " passes regex")
         
         
         // For passwords: check if passwords match
@@ -98,7 +100,9 @@ function validateField(id, value) {
             var host = "http://"+window.location.hostname;
 
             if ( host.endsWith(".herokuapp.com") ) {
-                availCheck( id, value, msgInvalid )
+                availCheck( id, value )
+            } else {
+                trackField( id, true, msgInvalid )
             }
 
         }
@@ -118,7 +122,7 @@ function validateField(id, value) {
 function trackField( id, isGood, msgInvalid ) {
     
     goodFields.set( id, isGood )
-    console.info(id + ": " + isGood ? msgValid : msgInvalid)
+    console.info( id + ": " + (isGood ? msgValid : msgInvalid) )
     if (id != "photo") {
         checkIcon( id, isGood )
     }
