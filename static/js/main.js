@@ -1,5 +1,5 @@
 
-var avail = false;
+var msgValid = " is good!"
 var submit = document.getElementById("submit");
 
 var ids =  [
@@ -34,23 +34,23 @@ regexDict.set("photo", [/.+/, "a file has to be chosen (PNG or JPG)"]);
 
 
 
-function availCheck(username) {
+function availCheck( id, value, msgInvalid ) {
 
 
     let xhr = new XMLHttpRequest();
-    let host = 'https://infinite-hamlet-29399.herokuapp.com/check/' + username;
-    xhr.onreadystatechange = function(){
+    let host = 'https://infinite-hamlet-29399.herokuapp.com/check/' + value;
+    xhr.onreadystatechange = function() {
         let DONE = 4;
         let OK = 200;
-        if (xhr.readyState == DONE){
-            if(xhr.status == OK){
+        if (xhr.readyState == DONE) {
+            if(xhr.status == OK) {
+
                 let response = JSON.parse(xhr.responseText);
+
                 console.info(response)
-                if (response[username] === "available"){
-                    trackField( id, true, " is good!" )
-                } else {
-                    trackField( id, false, " is not available" )
-                }
+
+                trackField( id, (response[value] === "available"), msgInvalid )
+
 
             } 
         }
@@ -72,9 +72,8 @@ function validateField(id, value) {
 
     // console.info("Validating " + id + " field...")
     
-    // var isGood = false;
-    var [regex, msg] = regexDict.get(id)
- 
+    var [regex, msgInvalid] = regexDict.get(id)
+    
  
     // For everything: Check RegEx
     if ( regex.test(value) ) {
@@ -82,53 +81,53 @@ function validateField(id, value) {
         
         // For passwords: check if passwords match
         if (id=="password" || id=="password2") {
-            if (!passwordsMatchCheck()) {
-                return trackField( id, false, msg )
-            }
+            trackField( id, passwordsMatchCheck(), msgInvalid )
         }
 
         // For photo: check JPG or PNG
-        if (id=="photo") {
-            if (!(value.endsWith(".jpg") || value.endsWith(".png"))) {
-                return trackField( id, false, msg )
-            }
+        else if (id=="photo") {
+
+            trackField( id, (value.endsWith(".jpg") || value.endsWith(".png")), msgInvalid )
+            
         }
         
 
         // For login: check if availible on https://infinite-hamlet-29399.herokuapp.com/check/<username>
-        if (id=="login") {
+        else if (id=="login") {
 
             var host = "http://"+window.location.hostname;
 
             if ( host.endsWith(".herokuapp.com") ) {
-                return availCheck(value)
+                availCheck( id, value, msgInvalid )
             }
 
         }
 
-    }
+        else trackField( id, true, msgInvalid )
+        
+    } 
     
-
-    return trackField( id, true, " is good!" )
+    else trackField( id, false, msgInvalid )
+    
 
 
 
     
 }
 
-function trackField( id, isGood, msg ) {
+function trackField( id, isGood, msgInvalid ) {
     
     goodFields.set( id, isGood )
-    console.info(id + ": " + msg)
+    console.info(id + ": " + isGood ? msgValid : msgInvalid)
     if (id != "photo") {
-        checkError( id, isGood )
+        checkIcon( id, isGood )
     }
     
     checkIfAllGood();
 }
 
 
-function checkError( id, isGood ) {
+function checkIcon( id, isGood ) {
 
     iconID = id+"-icon"
     var iconElem = document.getElementById( iconID )
