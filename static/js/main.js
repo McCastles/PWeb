@@ -1,5 +1,5 @@
 
-var msgValid = " is good!"
+var msgValid = "is good!"
 var submit = document.getElementById("submit");
 
 var ids =  [
@@ -23,10 +23,10 @@ var regexDict = new Map();
 
 regexDict.set("login", [/^[a-z]{3,12}$/, "small Latin letters, length between 3 and 12"]);
 regexDict.set("password", [/.{8,}/, "at least 8 characters long"]);
-regexDict.set("password2", [/.+/, "must match Password"]);
+regexDict.set("password2", [/.+/, "at least 8 characters long"]);
 
-regexDict.set("firstname", [/^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]+$/, "Latin and/or Polish symbols"]);
-regexDict.set("lastname", [/^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]+$/, "Latin and/or Polish symbols"]);
+regexDict.set("firstname", [/^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]+$/, "Latin and/or Polish symbols, has to start with the capital letter"]);
+regexDict.set("lastname", [/^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]+$/, "Latin and/or Polish symbols, has to start with the capital letter"]);
 regexDict.set("sex", [/^[M,F]{1}$/, "either Male or Female"]);
 
 regexDict.set("photo", [/.+/, "a file has to be chosen (PNG or JPG)"]);
@@ -57,7 +57,7 @@ function availCheck( id, value ) {
     };
     xhr.open('GET', host, true);
     xhr.send(null);
-    console.log("request sent to:", host);
+    console.log(id + ": request sent to:", host);
 }
 
 
@@ -78,12 +78,12 @@ function validateField(id, value) {
     // For everything: Check RegEx
     if ( regex.test(value) ) {
 
-        console.info(id + " passes regex")
+        console.info(id + ": passes regex")
         
         
         // For passwords: check if passwords match
         if (id=="password" || id=="password2") {
-            trackField( id, passwordsMatchCheck(), msgInvalid )
+            trackField( id, passwordsMatchCheck(), "passwords have to match" )
         }
 
         // For photo: check JPG or PNG
