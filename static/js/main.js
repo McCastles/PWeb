@@ -21,7 +21,7 @@ ids.forEach(function (id, index) {
 
 var regexDict = new Map();
 
-regexDict.set("login", [/[a-z]{3,12}/, "small Latin letters, length between 3 and 12"]);
+regexDict.set("login", [/^[a-z]{3,12}$/, "small Latin letters, length between 3 and 12"]);
 regexDict.set("password", [/.{8,}/, "at least 8 characters long"]);
 regexDict.set("password2", [/.+/, "must match Password"]);
 
