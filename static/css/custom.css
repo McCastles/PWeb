@@ -1,6 +1,6 @@
 
 body {
-    background: #ced4da;
+    background: #e9ecef;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -10,6 +10,11 @@ main {
     flex: 1 0 auto;
 }
      
+
+select {
+    display: inline ;
+    margin-left: 3rem;
+}
 
 .nav-wrapper {
     background-color: #ffffff !important;
@@ -30,6 +35,14 @@ main {
 
 .icon-color {
     color: #db7ab2;
+}
+
+.error-color {
+    color: #f25c54;
+}
+
+.good-color {
+    color: #50c467;
 }
 
 .page-footer {
@@ -60,9 +73,9 @@ main {
     /* margin-left: 14px; */
 }
 
-/* .row .col {
-    padding: 0rem;
-} */
+.row .col {
+    padding: 0.1rem;
+}
 
 
 .input-field {
@@ -74,3 +87,6 @@ main {
     background-color: #db7ab2;
 }
 
+.dropdown-trigger {
+    margin-left: 3rem;
+}

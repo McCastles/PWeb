@@ -7,7 +7,17 @@ app.debug = False
 
 @app.route('/register', methods=['POST'])
 def register():
-    return 'OK'
+    
+    
+    return f'''
+    {request.form.get("login")}
+    {request.form.get("password")}
+    {request.form.get("password2")}
+    {request.form.get("firstname")}
+    {request.form.get("lastname")}
+    {request.form.get("sex")}
+    {request.form.get("photo")}
+    '''
 
 
 
