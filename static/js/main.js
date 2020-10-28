@@ -1,5 +1,6 @@
 
-submit = document.getElementById("submit")
+var avail = false;
+var submit = document.getElementById("submit");
 
 var ids =  [
     "login",
@@ -35,6 +36,7 @@ regexDict.set("photo", [/.+/, "a file has to be chosen (PNG or JPG)"]);
 
 function availCheck(username) {
 
+
     let xhr = new XMLHttpRequest();
     let host = 'https://infinite-hamlet-29399.herokuapp.com/check/' + username;
     xhr.onreadystatechange = function(){
@@ -45,12 +47,11 @@ function availCheck(username) {
                 let response = JSON.parse(xhr.responseText);
                 console.info(response)
                 if (response[username] === "available"){
-                    return true
+                    trackField( id, true, " is good!" )
+                } else {
+                    trackField( id, false, " is not available" )
                 }
-                    // markAlright(username, alert_username, 2);
-                // } else {
-                //     markError(username, alert_username, 2, message);
-                // }
+
             } 
         }
     };
@@ -60,8 +61,10 @@ function availCheck(username) {
 }
 
 
-function passwordsMatch( password2value ) {
-    return password2value == document.getElementById("password").value
+function passwordsMatchCheck() {
+    p1 = document.getElementById("password").value
+    p2 = document.getElementById("password2").value
+    return p1 == p2
 }
 
 
@@ -69,53 +72,48 @@ function validateField(id, value) {
 
     // console.info("Validating " + id + " field...")
     
-    var isGood = false;
+    // var isGood = false;
     var [regex, msg] = regexDict.get(id)
  
  
-    // Check RegExp
+    // For everything: Check RegEx
     if ( regex.test(value) ) {
-        isGood = true;
-        msg = "good!";        
-    }
-    
-    // For passwords: check if passwords match
-    if (id=="password" || id=="password2") {
-        if (!passwordsMatch(value))  {
-            var isGood = false;
-            msg = regexDict.get(id)[1]
-        }
-    }
-
-    // For photo: check JPG or PNG
-    if (id=="photo") {
-        if (!(value.endsWith(".jpg") || value.endsWith(".png"))) {
-            var isGood = false;
-            msg = regexDict.get(id)[1]
-        }
-    }
-    
-
-    // For login: check if availible on https://infinite-hamlet-29399.herokuapp.com/check/<username>
-    if (id=="login") {
-
-        var host = "http://"+window.location.hostname;
-
-        if ( host.endsWith(".herokuapp.com") ) {
-            if (!availCheck(value)) {
-                var isGood = false;
-                msg = regexDict.get(id)[1]
+        
+        
+        // For passwords: check if passwords match
+        if (id=="password" || id=="password2") {
+            if (!passwordsMatchCheck()) {
+                return trackField( id, false, msg )
             }
         }
 
+        // For photo: check JPG or PNG
+        if (id=="photo") {
+            if (!(value.endsWith(".jpg") || value.endsWith(".png"))) {
+                return trackField( id, false, msg )
+            }
+        }
+        
+
+        // For login: check if availible on https://infinite-hamlet-29399.herokuapp.com/check/<username>
+        if (id=="login") {
+
+            var host = "http://"+window.location.hostname;
+
+            if ( host.endsWith(".herokuapp.com") ) {
+                return availCheck(value)
+            }
+
+        }
+
     }
     
 
+    return trackField( id, true, " is good!" )
+
+
+
     
-
-
-
-    trackField( id, isGood, msg )
 }
 
 function trackField( id, isGood, msg ) {
