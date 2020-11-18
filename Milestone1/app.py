@@ -117,7 +117,7 @@ def login():
 
 
     # print( password, password.encode('utf-8'), users[username]["password"],
-        checkpw( password.encode('utf8'), users[username]["password"] ) )
+        checkpw( password.encode('utf8'), users[username]["password"] ) 
     if not checkpw( password.encode('utf8'), users[username]["password"] ):
 
         return "Incorrect username or passworddd", 401
