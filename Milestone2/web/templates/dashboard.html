@@ -1,0 +1,144 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+<!-- <div class="row s12 "> -->
+
+    <form class="col s2 offset-s1" method="POST" action="/sender/dashboard">
+
+        <ul>
+
+            <li>
+
+                <div class="input-field row">
+
+                    <i class="material-icons prefix icon-color" id="address-icon">home</i>
+                    <input type="text" id="address" name="address" class="validate" autocomplete="off">
+                    <label for="icon_prefix">Address</label>
+                </div>
+
+
+            </li>
+
+
+            <li>
+
+
+                <div class="input-field row">
+
+                    <i class="material-icons prefix icon-color" id="recipient-icon">contact_mail</i>
+                    <input type="text" id="recipient" name="recipient" class="validate" autocomplete="off">
+                    <label for="icon_prefix">Recipient</label>
+                </div>
+
+            </li>
+
+
+
+            <li>
+
+
+                <div class="input-field row">
+
+                    <i class="material-icons prefix icon-color" id="weight-icon">local_shipping</i>
+                    <input type="text" id="weight" name="weight" class="validate" autocomplete="off">
+                    <label for="icon_prefix">Weight</label>
+                </div>
+
+            </li>
+
+            <li>
+
+                <div class="input-field row">
+
+                    <button class="btn waves-effect waves-light" id="send-btn" type="submit" autocomplete="off">
+                        Send
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+
+            </li>
+
+
+        </ul>
+    </form>
+
+
+
+
+
+
+    <div class="col s3 offset-s1">
+
+        {% if haspackages %}
+
+
+        <table class="highlight">
+            <thead>
+                <tr>
+                    <th>Your Packages IDs</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for package, token in tokens.items() %}
+                <tr>
+                    <td>
+                        <a href="/package/{{ package }}?token={{ token }}"> {{ package }} </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+
+        {% else %}
+
+        <h3>Send your first package!</h3>
+
+        {% endif %}
+
+    </div>
+
+
+
+
+
+
+<!-- 
+    <div class="col s3 offset-s1">
+
+        {% if haspackages %}
+
+
+
+        {% else %}
+
+        
+
+        {% endif %}
+
+    </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- </div> -->
+
+
+
+
+{% endblock%}

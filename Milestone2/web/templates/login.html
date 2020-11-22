@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+<form class="col s12" method="POST" action="/sender/login">
+
+    <ul>
+
+
+        <li>
+            <div class="row">
+
+                <div class="input-field col s2 offset-s1">
+
+                    <i class="material-icons prefix icon-color" id="login-icon">assignment_ind</i>
+                    <!-- <i class="material-icons prefix error-color" id="login-error" hidden>error</i> -->
+                    <!-- <i class="material-icons prefix good-color" id="login-good" hidden>check_circle</i> -->
+
+                    <input type="text" id="login" name="login" class="validate" autocomplete="off">
+                    <label for="icon_prefix">Login</label>
+                </div>
+
+            </div>
+        </li>
+
+
+        <li>
+            <div class="row">
+
+                <div class="input-field col s2 offset-s1">
+
+                    <i class="material-icons prefix icon-color" id="password-icon">lock_outline</i>
+                    <!-- <i class="material-icons prefix error-color" id="password-error" hidden>error</i> -->
+                    <!-- <i class="material-icons prefix good-color" id="password-good" hidden>check_circle</i> -->
+
+                    <input type="password" id="password" name="password" class="validate" autocomplete="off">
+                    <label for="icon_prefix">Password</label>
+                </div>
+
+            </div>
+        </li>
+
+        <li>
+            <div class="row">
+
+                <div class="input-field col s2 offset-s1">
+
+                    <button class="btn waves-effect waves-light" id="login-btn" type="submit" autocomplete="off">
+                        Log in
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+
+
+
+            </div>
+        </li>
+
+
+    </ul>
+</form>
+
+
+{% endblock%}

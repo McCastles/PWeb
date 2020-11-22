@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="col s9 offset-s1">
+
+    <div class="row s3 offset-s1">
+        <table class="highlight">
+            <thead>
+                <tr>
+                    <th>Package ID</th>
+                    <th>Sender</th>
+                    <th>Weight, kg</th>
+                    <th>Address</th>
+                    <th>Recipient</th>
+                    <th>Sent</th>
+                    <th>Delivered</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {% for value in package %}
+                    <td>
+                        {{ value }}
+                    </td>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <form method="POST" action="/sender/delete_package/{{package[0]}}">
+        <div class="row s3 offset-s1">
+            <button class="btn waves-effect waves-light" id="delete-btn" type="submit" autocomplete="off">
+                Delete package
+                <i class="material-icons right">delete_forever</i>
+            </button>
+        </div>
+    </form>
+
+
+</div>
+
+
+{% endblock%}

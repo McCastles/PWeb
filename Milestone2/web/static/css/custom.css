@@ -1,0 +1,139 @@
+
+body {
+    
+    background: #90e0ef;
+    /* background: #4a4e69; */
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    /* color: #ffffff; */
+}
+
+main {
+    flex: 1 0 auto;
+}
+     
+
+select {
+    display: inline ;
+    margin-left: 3rem;
+    color: #000000;
+}
+
+input, textarea{
+    color: #ffffff;
+}
+
+
+
+.nav-wrapper {
+    background-color: #ffffff !important;
+    font-size: 14px;
+    font-weight: bold;
+    height: 100px;  
+}
+
+/* .nav .nav-wrapper .brand-logo img {
+    width: 400px;
+    height: auto;
+} */
+
+.nav-link-color li a {
+    color: #ffffff;
+    background-color: #227c9d;
+}
+
+.icon-color {
+    /* color: #db7ab2; */
+    color: #227c9d;
+    /* color: greenyellow; */
+}
+
+.error-color {
+    /* color: #f25c54; */
+    color: #e71d36;
+    
+}
+
+.good-color {
+    
+    /* color: greenyellow; */
+    color: #52b788;
+    
+}
+
+.page-footer {
+    background-color: #227c9d;
+
+}
+
+.card {
+    width: 90%;
+    /* height: 20%; */
+    float: left;
+}
+
+.card-content{
+    text-align: center;
+    font-weight: bold;
+}
+
+.card-title {
+/* .dark-card-title { */
+    color: #8d99ae !important;
+}
+
+.row{
+    margin-top:30px;
+    /* margin-top: 50px; */
+    /* text-align: center; */
+}
+
+.row .col {
+    padding: 0.1rem;
+    
+}
+
+
+.input-field {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+
+.btn {
+    /* background-color: #db7ab2; */
+    background-color: #227c9d;
+    
+}
+
+.dropdown-trigger {
+    margin-left: 3rem;
+}
+
+.flashes {
+    color: #e71d36;
+    /* color: #f25c54; */
+    /* border-color: #ffffff; */
+    /* border-style: solid; */
+}
+
+
+.alert-good {
+    
+    /* color: greenyellow; */
+    color: #52b788;
+    
+}
+
+
+/* label focus color */
+.input-field input:focus + label {
+    color: #ffffff !important;
+}
+
+/* label underline focus color */
+.row .input-field input:focus {
+    border-bottom: 1px solid #ffffff !important;
+    box-shadow: 0 1px 0 0 #ffffff !important
+}
+

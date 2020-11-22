@@ -1,0 +1,104 @@
+<!doctype>
+<html>
+
+<head>
+
+    <!-- TITLE -->
+    {% if title %}
+    <title>Pączkomat - {{ title }}</title>
+    {% else %}
+    <title>Pączkomat</title>
+    {% endif %}
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/static/css/materialize.css" media="screen,projection" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/custom.css">
+
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">
+                    <img src="../static/images/logo2.png" width="280" height="auto">
+                </a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down nav-link-color">
+                    <li><a href="/" class="nav-link-color">Home</a></li>
+
+
+                    {% if loggedin %}
+                    <li><a href="/sender/logout" class="nav-link-color">Log Out</a></li>
+                    <li><a href="/sender/dashboard" class="nav-link-color">Dashboard</a></li>
+                    {% else %}
+                    <li><a href="/sender/login" class="nav-link-color">Log In</a></li>
+                    <li><a href="/sender/signup" class="nav-link-color">Sign Up</a></li>
+                    {% endif %}
+
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- 
+    {% if loggedin %}
+    user is logged in
+    {% else %}
+    user is not logged in
+    {% endif %} -->
+
+
+    <main>
+
+        <section>
+            <div class="row">
+
+                <!-- CONTENT -->
+                {% block content %}
+                {% endblock %}
+
+                <!-- FLASHES -->
+                <div class="col s4 offset-s1">
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    <ul class="flashes">
+
+                        {% for message in messages %}
+                        <li>{{ message }}</li>
+
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% endwith %}
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                © 2020 Aleksei Haidukevich, Politechnika Warszawska
+                <a class="grey-text text-lighten-4 left" href="https://github.com/McCastles/PWeb">GitHub</a>
+                <a class="grey-text text-lighten-4 right" href="http://bitly.com/98K8eH">Hmm what is this link...</a>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- SCRIPTS -->
+    <script type="text/javascript" src="/static/js/materialize.js"></script>
+    {% block script %}
+    {% endblock %}
+
+</body>
+
+</html>
