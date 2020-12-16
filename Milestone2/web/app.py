@@ -43,13 +43,13 @@ app.debug = False
 
 
 fields = [
+    'login',
     'firstname',
-    'lastname'
-    'login'
+    'password',
+    'lastname',
+    'sex',
+    'password2',
     'email'
-    'password'
-    'password2'
-    'address'
 ]
 
 
@@ -143,7 +143,7 @@ def signup():
     if request.form.get('password') != request.form.get('password2'):
         flash('Passwords have to match')
         ok = False
-        
+    login = request.form.get( 'login' )
     if is_user(login):
         flash(f'User {login} already exists')
         ok = False
